@@ -14,6 +14,8 @@ export const Colors = {
     secondary: '#b40086',
     tertiary: '#ef2967',
     success: '#52d49b',
+    danger: '#ef4444',
+    link: '#3b82f6',
 
     text: '#000000',
     background: '#f5f5f5',
@@ -23,6 +25,8 @@ export const Colors = {
     secondary: '#d138a8',
     tertiary: '#ff527f',
     success: '#3a9d78',
+    danger: '#991b1b',
+    link: '#1e40af',
 
     text: '#ECEDEE',
     background: '#17202A',
