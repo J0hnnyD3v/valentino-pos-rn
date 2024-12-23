@@ -16,11 +16,12 @@ interface Props extends TextProps {
   className?: string;
   type?: TextType;
   weight?: FontWeightType;
+  color?: string;
 }
-const ThemedText = ({ className, type = 'normal', weight = 'font-normal', ...rest }: Props) => {
+const ThemedText = ({ className, type = 'normal', weight = 'font-normal', color = undefined, ...rest }: Props) => {
   const textColor = useThemeColor({}, (type === 'link' || type === 'danger' ? type : 'text'));
   return <Text
-    style={{ color: textColor }}
+    style={{ color: color ? color : textColor }}
     className={`
       ${type === 'normal' ? 'text-base' : ''}
       ${type === 'h1' ? 'text-3xl' : ''}

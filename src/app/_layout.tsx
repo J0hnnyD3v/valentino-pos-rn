@@ -1,6 +1,6 @@
 import 'react-native-reanimated';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
+import { Slot, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useEffect } from 'react';
@@ -38,11 +38,8 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor }}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        {/* <Stack>
-          
-        </Stack> */}
-        <StatusBar style="auto" />
+        <Slot />
       </ThemeProvider>
-    </GestureHandlerRootView>
+    </GestureHandlerRootView >
   );
 }
