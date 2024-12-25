@@ -9,6 +9,7 @@
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@stores/*": ["src/stores/*"],
     }
   },
   "include": [
