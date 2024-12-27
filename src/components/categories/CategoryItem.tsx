@@ -2,6 +2,7 @@ import { View, Image, Pressable } from 'react-native'
 
 import ThemedText from '@components/shared/ThemedText';
 import { ICategory } from '@stores';
+import { router } from 'expo-router';
 
 interface Props {
   item: ICategory;
@@ -9,6 +10,7 @@ interface Props {
 const CategoryItem = ({ item }: Props) => {
   return (
     <Pressable
+      onPress={() => router.push({ pathname: '/(drawer)/(category)/[id]', params: { id: item.id } })}
       className={`
         flex-1
         max-w-[50%]

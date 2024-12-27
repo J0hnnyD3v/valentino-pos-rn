@@ -41,7 +41,7 @@ const DrawerLayout = () => {
       }}
     />
     <Drawer.Screen
-      name="(category)/index" // This is the name of the page and must match the url from root
+      name="(category)" // This is the name of the page and must match the url from root
       options={{
         drawerLabel: 'Categorías',
         title: 'Categorías',

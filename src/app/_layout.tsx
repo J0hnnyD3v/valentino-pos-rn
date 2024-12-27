@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { Slot } from 'expo-router';
+import { Slot, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { useColorScheme  } from 'nativewind';
+import { useColorScheme } from 'nativewind';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { useThemeColor } from '@hooks/useThemeColor';
@@ -46,6 +46,9 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1, backgroundColor }}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Slot />
+        {/* <Stack
+          screenOptions={{ headerShown: false }}
+        /> */}
       </ThemeProvider>
     </GestureHandlerRootView >
   );
