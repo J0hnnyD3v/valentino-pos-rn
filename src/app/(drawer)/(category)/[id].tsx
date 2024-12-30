@@ -1,32 +1,61 @@
-import { View, Text } from 'react-native'
-import React, { useState } from 'react'
-import { Redirect, Stack, useLocalSearchParams } from 'expo-router'
+import { Image, Pressable, ScrollView } from 'react-native'
+import { useState } from 'react'
+import { Redirect, Stack, useLocalSearchParams, useNavigation, router, Link } from 'expo-router'
 import { useCategoryStore } from '@stores';
-import ThemedTextInput from '@components/shared/ThemedTextInput';
-import ThemedView from '@components/shared/ThemedView';
+import ThemedText from '@components/shared/ThemedText';
+import { useThemeColor } from '@hooks/useThemeColor';
+import { Ionicons } from '@expo/vector-icons';
+import CustomButton from '@components/shared/CustomButton';
 
 const CategoryScreen = () => {
   const [name, setName] = useState('');
-  const categories = useCategoryStore(state => state.categories);
   const params = useLocalSearchParams();
-  console.log('params', params)
+  const categories = useCategoryStore(state => state.categories);
+  const backgroundColor = useThemeColor({}, 'background');
+  const linkColor = useThemeColor({}, 'tint');
+  // const navigation = useNavigation();
+
   const category = categories.find(c => c.id.toString() === params?.id);
-  console.log('category', category);
+
+  // useEffect(() => {
+  //   navigation.setOptions({
+  //     title: category?.name ?? 'Categoría',
+  //     animation: 'fade_from_bottom',
+  //     contentStyle: {
+  //       color: 'dodgerblue'
+  //     }
+  //   });
+  // }, [category]);
+
 
   if (!category) return <Redirect href='/' />;
 
   return (
-    <ThemedView margin>
-      {/* <Stack.Screen options={{ title: category.name }} /> */}
-      <ThemedTextInput
-        placeholder='Nombre de la categoría'
-        autoCapitalize='none'
-        keyboardType='default'
-        icon='newspaper'
-        value={name}
-        onChangeText={setName}
+    <ScrollView style={{ backgroundColor }} className='p-4'>
+      <Stack.Screen
+        options={{
+          title: category?.name ?? 'Categoría',
+          headerRight: ({ tintColor, canGoBack }) => (
+            <Pressable onPressIn={() => router.push(`/(drawer)/(category)/create?id=${category?.id}`)}>
+              <Ionicons
+                style={{ color: linkColor }}
+                name={'create-outline'}
+                className=''
+                size={30}
+              />
+            </Pressable>
+          ),
+        }}
       />
-    </ThemedView>
+
+      <Image
+        source={{ uri: category.image }}
+        resizeMode='cover'
+        className='w-full h-auto aspect-square rounded-3xl shadow shadow-cyan-700'
+      />
+      <ThemedText type='h1' className='mt-5' weight='font-semibold'>{category.name}</ThemedText>
+      <ThemedText type='h2' className='mt-2' weight='font-medium' color='gray'>{category.description}</ThemedText>
+    </ScrollView>
   )
 }
 

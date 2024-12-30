@@ -10,25 +10,27 @@
 
 export const Colors = {
   light: {
-    primary: '#49129c',
+    text: '#11181C',
+    background: '#f5f5f5',
+    primary: '#3D64F4',
+    tint: '#0A7EA4',
+
     secondary: '#b40086',
     tertiary: '#ef2967',
     success: '#52d49b',
     danger: '#ef4444',
     link: '#3b82f6',
-
-    text: '#000000',
-    background: '#f5f5f5',
   },
   dark: {
-    primary: '#7a4edc',
+    text: '#ECEDEE',
+    background: '#1F2B43',
+    primary: '#3D64F4',
+    tint: '#F5F5F5',
+
     secondary: '#d138a8',
     tertiary: '#ff527f',
     success: '#3a9d78',
-    danger: '#991b1b',
+    danger: '#FF204E',
     link: '#1e40af',
-
-    text: '#ECEDEE',
-    background: '#17202A',
   },
 };

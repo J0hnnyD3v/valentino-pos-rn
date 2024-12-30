@@ -30,7 +30,7 @@ const CategoryItem = ({ item }: Props) => {
       />
       <View className='p-2'>
         <ThemedText className='my-2' weight='font-semibold' type='h2'>{item.name}</ThemedText>
-        <ThemedText className='my-5'>{item.description}</ThemedText>
+        <ThemedText className='my-5' numberOfLines={2}>{item.description}</ThemedText>
       </View>
     </Pressable>
   )

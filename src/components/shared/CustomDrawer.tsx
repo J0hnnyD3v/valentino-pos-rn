@@ -6,7 +6,7 @@ const CustomDrawer = (props: DrawerContentComponentProps) => {
     <DrawerContentScrollView {...props}>
       <View className='flex justify-center items-center mx-3 p-10 mb-10 h-[150px] rounded-xl bg-light-link dark:bg-dark-link'>
         <View className='flex justify-center items-center bg-white rounded-full h-24 w-24'>
-          <Text className='text-primary font-work-black text-3xl'>JN</Text>
+          <Text className='text-light-link dark:text-dark-link font-bold text-4xl'>JN</Text>
         </View>
       </View>
 

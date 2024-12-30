@@ -29,7 +29,6 @@ const DrawerLayout = () => {
       sceneStyle: {
         backgroundColor,
       },
-
     }}
   >
     <Drawer.Screen
@@ -44,6 +43,7 @@ const DrawerLayout = () => {
       name="(category)" // This is the name of the page and must match the url from root
       options={{
         drawerLabel: 'Categorías',
+        headerShown: false,
         title: 'Categorías',
         drawerIcon: ({ color, size }) => <Ionicons name='pricetags-outline' color={color} size={size} />
       }}
